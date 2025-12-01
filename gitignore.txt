@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Project specific
+logs/*.log
+logs/**/*.log
+results/*.csv
+results/**/*.csv
+
+# Keep directory structure
+!logs/.gitkeep
+!results/.gitkeep
+!data/.gitkeep
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# Local configs
+*.local.yaml
+*.secret.yaml
+config/*.local.yaml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Data files (uncomment if you don't want to track data)
+# data/*.csv
+# !data/README.md
