@@ -136,7 +136,7 @@ class Backtester:
         # Close any open position at the end
         if position > 0:
             final_price = data['Close'].iloc[-1]
-            capital = position * current_price
+            capital = position * final_price
             capital *= (1 - self.commission)
             
             trade_return = (final_price - entry_price) / entry_price * 100
