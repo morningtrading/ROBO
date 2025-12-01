@@ -1,0 +1,15 @@
+2025-12-01 12:38:41 - INFO - ROBO_main.py:54 - Loading configurations...
+2025-12-01 12:38:41 - INFO - ROBO_validators.py:154 - Strategy config validation passed
+2025-12-01 12:38:41 - INFO - ROBO_main.py:70 - TEST MODE - Running on single coin only
+2025-12-01 12:38:41 - INFO - ROBO_data_loader.py:49 - BTC/USDT: Loading data from BTC_USDT-15m.csv
+2025-12-01 12:38:42 - INFO - ROBO_validators.py:77 - BTC/USDT: Validation passed (34631 bars)
+2025-12-01 12:38:42 - INFO - ROBO_data_loader.py:93 - BTC/USDT: Successfully loaded 34631 bars
+2025-12-01 12:38:42 - INFO - ROBO_data_loader.py:123 - Successfully loaded 1 out of 1 coins
+2025-12-01 12:38:42 - INFO - ROBO_main.py:79 - Running backtests on 1 coins...
+2025-12-01 12:38:42 - INFO - ROBO_backtester.py:40 - Initialized backtester with ROBO_RSI_Strategy
+2025-12-01 12:38:42 - INFO - ROBO_backtester.py:87 - BTC/USDT: Running backtest...
+2025-12-01 12:38:42 - DEBUG - ROBO_base_strategy.py:49 - ROBORSIStrategy initialized
+2025-12-01 12:38:42 - INFO - ROBO_backtester.py:113 - BTC/USDT: Backtest complete - Return: -0.03%
+2025-12-01 12:38:42 - INFO - ROBO_backtester.py:203 - Results saved to results/ROBO_results_20251201_123842.csv
+2025-12-01 12:38:42 - INFO - ROBO_main.py:95 - Results saved to results/ROBO_results_20251201_123842.csv
+2025-12-01 12:38:42 - INFO - ROBO_main.py:97 - ROBO Trading System completed successfully

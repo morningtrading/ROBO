@@ -1,0 +1,37 @@
+strategy:
+  name: "ROBO_RSI_Strategy"
+  version: "2.0"
+
+trade_direction: "long"
+
+indicators:
+  rsi:
+    period: 14
+    oversold: 35
+    overbought: 65
+  sma_trend:
+    enabled: true
+    period: 200
+  atr:
+    period: 14
+
+risk_management:
+  risk_per_trade_percent: 2.0
+  max_position_size_percent: 95.0
+  stop_loss:
+    method: "atr"
+    atr_multiplier: 1.5
+  take_profit:
+    method: "atr"
+    atr_multiplier: 3.0
+  max_concurrent_positions: 3
+  daily_loss_limit_percent: 5.0
+
+backtest:
+  initial_capital: 10000000
+  commission: 0.002
+
+output:
+  save_results: true
+  results_dir: "./results"
+  verbose: true

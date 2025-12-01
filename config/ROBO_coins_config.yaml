@@ -1,0 +1,15 @@
+data_directory: "./data"
+
+coins:
+  - symbol: "BTC/USDT"
+    filename: "BTC_USDT-15m.csv"
+    enabled: true
+  - symbol: "BNB/USDT"
+    filename: "BNB_USDT-15m.csv"
+    enabled: true
+  - symbol: "LTC/USDT"
+    filename: "LTC_USDT-15m.csv"
+    enabled: true
+  - symbol: "SOL/USDT"
+    filename: "SOL_USDT-15m.csv"
+    enabled: true
