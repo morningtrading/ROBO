@@ -102,7 +102,8 @@ class Backtester:
             # Execute trades based on signals
             if signal == 1 and position == 0:  # Buy signal
                 # Enter long position - deduct commission from capital first
-                available_capital = capital * (1 - self.commission)
+                commission_cost = capital * self.commission
+                available_capital = capital - commission_cost
                 position = available_capital / current_price
                 entry_price = current_price
                 capital = 0
@@ -114,8 +115,9 @@ class Backtester:
                 
             elif signal == -1 and position > 0:  # Sell signal
                 # Exit long position
-                capital = position * current_price
-                capital *= (1 - self.commission)  # Deduct commission
+                proceeds = position * current_price
+                commission_cost = proceeds * self.commission
+                capital = proceeds - commission_cost
                 
                 # Calculate trade return
                 trade_return = (current_price - entry_price) / entry_price * 100
@@ -137,8 +139,9 @@ class Backtester:
         # Close any open position at the end
         if position > 0:
             final_price = data['Close'].iloc[-1]
-            capital = position * final_price
-            capital *= (1 - self.commission)
+            proceeds = position * final_price
+            commission_cost = proceeds * self.commission
+            capital = proceeds - commission_cost
             
             trade_return = (final_price - entry_price) / entry_price * 100
             if trade_return > 0:
