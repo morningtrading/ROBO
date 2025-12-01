@@ -25,14 +25,14 @@ def plot_top_strategies(results: List[BacktestResult], n: int = 10, metric: str 
     values = [getattr(r, metric) for r in sorted_results]
     
     # Create plot
-    plt.figure(figsize=(12, 8))
+    fig = plt.figure(figsize=(12, 8))
     plt.barh(range(len(labels)), values)
     plt.yticks(range(len(labels)), labels, fontsize=8)
     plt.xlabel(metric.replace('_', ' ').title())
     plt.title(f'Top {n} Strategy Configurations by {metric.replace("_", " ").title()}')
     plt.tight_layout()
     
-    return plt
+    return fig
 
 
 def plot_strategy_comparison(df: pd.DataFrame):
@@ -102,7 +102,8 @@ def print_summary_report(sweeper):
     for i, result in enumerate(best_results, 1):
         print(f"\n{i}. {result}")
         print(f"   Parameters: {result.params}")
-        print(f"   Win Rate: {(result.winning_trades/result.total_trades*100) if result.total_trades > 0 else 0:.2f}%")
+        win_rate = (result.winning_trades / result.total_trades * 100) if result.total_trades > 0 else 0
+        print(f"   Win Rate: {win_rate:.2f}%")
         print(f"   Max Drawdown: {result.max_drawdown:.2f}%")
     
     # Best by Sharpe ratio

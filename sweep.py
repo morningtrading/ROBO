@@ -139,8 +139,8 @@ def main():
             # Top strategies plot
             best_results = sweeper.get_best_results(n=15, metric='total_return')
             if best_results:
-                plt = plot_top_strategies(best_results, n=15)
-                plt.savefig('top_strategies.png', dpi=150, bbox_inches='tight')
+                fig = plot_top_strategies(best_results, n=15)
+                fig.savefig('top_strategies.png', dpi=150, bbox_inches='tight')
                 print("  Saved: top_strategies.png")
         
         except Exception as e:

@@ -83,9 +83,12 @@ class RSIStrategy(Strategy):
         gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
         loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
         
-        # Avoid division by zero
-        rs = gain / loss.replace(0, np.nan)
+        # Avoid division by zero - use div method with fill_value
+        rs = gain.div(loss, fill_value=0)
+        # Handle cases where RS is infinite or NaN
+        rs = rs.replace([np.inf, -np.inf], 100)
         rsi = 100 - (100 / (1 + rs))
+        rsi = rsi.fillna(50)  # Fill NaN with neutral RSI value
         
         # Generate signals
         signals = pd.Series(0, index=data.index)

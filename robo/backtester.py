@@ -93,16 +93,17 @@ class Backtester:
             signal = signals.iloc[i]
             
             # Track equity
-            equity = capital
             if position > 0:
-                equity = capital + (position * current_price)
+                equity = position * current_price
+            else:
+                equity = capital
             equity_curve.append(equity)
             
             # Execute trades based on signals
             if signal == 1 and position == 0:  # Buy signal
-                # Enter long position
-                position = capital / current_price
-                position *= (1 - self.commission)  # Deduct commission
+                # Enter long position - deduct commission from capital first
+                available_capital = capital * (1 - self.commission)
+                position = available_capital / current_price
                 entry_price = current_price
                 capital = 0
                 trades.append({
